@@ -14,34 +14,24 @@ for (let i = 0; i < num; i++) {
     arr[i] = parseInt(readline.prompt());
 }
 
-let ans;
+let ans = arr[0];
 
-
-switch (op) {
-    case "+":
-        ans = arr[0];
-        for (let i = 1; i < num; i++) {
+for (let i = 1; i < num; i++) {
+    switch (op) {
+        case "+":
             ans += arr[i];
-        }
-        break;
-    case "-":
-        ans = arr[0];
-        for (let i = 1; i < num; i++) {
+            break;
+        case "-":
             ans -= arr[i];
-        };
-        break;
-    case "*":
-        ans = arr[0];
-        for (let i = 1; i < num; i++) {
+            break;
+        case "*":
             ans *= arr[i];
-        }
-        break;
-    case "/":
-        ans = arr[0];
-        for (let i = 1; i < num; i++) {
+            break;
+        case "/":
             ans /= arr[i];
-        }
-        break;
+            break;
+    }
 }
+
 
 console.log(ans);
