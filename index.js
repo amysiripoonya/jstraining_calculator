@@ -4,25 +4,43 @@ console.log('Welcome to the calculator!');
 console.log('==========================')
 console.log('Enter the operator: ');
 const op = readline.prompt();
-console.log('Enter the first number: ');
-const n1 = parseInt(readline.prompt());
-console.log('Enter the second number: ');
-const n2 = parseInt(readline.prompt());
+console.log("How many numbers do you want to " + op + ": ");
+const num = readline.prompt();
+
+const arr = Array(num);
+
+for (let i = 0; i < num; i++) {
+    console.log('Enter number ' + (i + 1) + ' : ');
+    arr[i] = parseInt(readline.prompt());
+}
 
 let ans;
 
+
 switch (op) {
     case "+":
-        ans = n1 + n2;
+        ans = arr[0];
+        for (let i = 1; i < num; i++) {
+            ans += arr[i];
+        }
         break;
     case "-":
-        ans = n1 - n2; 
+        ans = arr[0];
+        for (let i = 1; i < num; i++) {
+            ans -= arr[i];
+        };
         break;
     case "*":
-        ans = n1 * n2;
+        ans = arr[0];
+        for (let i = 1; i < num; i++) {
+            ans *= arr[i];
+        }
         break;
     case "/":
-        ans = n1 / n2;
+        ans = arr[0];
+        for (let i = 1; i < num; i++) {
+            ans /= arr[i];
+        }
         break;
 }
 
