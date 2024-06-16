@@ -13,24 +13,48 @@ exports.performOneArithmeticCalculation = function() {
         arr[i] = input.getNum();
     }
 
-    let ans = arr[0];
+    // let ans = arr[0];
 
-    for (let i = 1; i < num; i++) {
-        switch (op) {
-            case "+":
-                ans += arr[i];
-                break;
-            case "-":
-                ans -= arr[i];
-                break;
-            case "*":
-                ans *= arr[i];
-                break;
-            case "/":
-                ans /= arr[i];
-                break;
-        }
+    // for (let i = 1; i < num; i++) {
+    //     switch (op) {
+    //         case "+":
+    //             ans += arr[i];
+    //             break;
+    //         case "-":
+    //             ans -= arr[i];
+    //             break;
+    //         case "*":
+    //             ans *= arr[i];
+    //             break;
+    //         case "/":
+    //             ans /= arr[i];
+    //             break;
+    //     }
+    // }
+    ans = arr[0];
+    let rem = arr.splice(1, num);
+
+    switch (op) {
+        case "+":
+            ans = rem.reduce((acc, cv) => acc + cv, ans);
+            break;
+        case "-":
+            ans = rem.reduce((acc, cv) => acc - cv, ans);
+            break;
+        case "*":
+            ans = rem.reduce((acc, cv) => acc * cv, ans);
+            break;
+        case "/":
+            rem = rem.filter((item) => item != 0);
+            if (ans == 0) {
+                ans = rem[0];
+                rem = rem.splice(1, rem.length - 1);
+            }
+            console.log(rem);
+            ans = rem.reduce((acc, cv) => acc / cv, ans);
+            break;
     }
+
 
     console.log(ans);
 }
