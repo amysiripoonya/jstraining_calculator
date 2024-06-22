@@ -4,7 +4,7 @@ exports.getNum = function() {
     let num = readline.prompt();
     if (isNaN(num)) {
         console.log("Not a number")
-        return getNum();
+        return this.getNum();
     } else {
         return parseInt(num);
     }

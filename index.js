@@ -8,6 +8,7 @@ const VOWEL_COUNTING_MODE = '2';
 
 
 printWelcomeMessage();
+
 while (true) {
   const calculationMode = getCalculationMode();
   if (calculationMode === ARITHMETIC_MODE) {
@@ -24,5 +25,10 @@ function printWelcomeMessage() {
 
 function getCalculationMode() {
     console.log("Which calculator mode do you want?\n 1) Arithmetic\n 2) Vowel counting")
-    return input.getStr();
+    let m = input.getStr();
+    while (m != '1' && m != '2') {
+        console.log("Invalid Mode")
+        m = input.getStr();
+    }
+    return m;
 }
